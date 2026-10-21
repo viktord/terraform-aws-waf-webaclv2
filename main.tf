@@ -254,9 +254,12 @@ resource "aws_wafv2_web_acl" "main" {
                     }
                     positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                     search_string         = lookup(byte_match_statement.value, "search_string")
-                    text_transformation {
-                      priority = lookup(byte_match_statement.value, "priority")
-                      type     = lookup(byte_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -333,9 +336,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                     regex_string = lookup(regex_match_statement.value, "regex_string")
-                    text_transformation {
-                      priority = lookup(regex_match_statement.value, "priority")
-                      type     = lookup(regex_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -448,9 +454,12 @@ resource "aws_wafv2_web_acl" "main" {
                           }
                           positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                           search_string         = lookup(byte_match_statement.value, "search_string")
-                          text_transformation {
-                            priority = lookup(byte_match_statement.value, "priority")
-                            type     = lookup(byte_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -527,9 +536,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                           }
                           regex_string = lookup(regex_match_statement.value, "regex_string")
-                          text_transformation {
-                            priority = lookup(regex_match_statement.value, "priority")
-                            type     = lookup(regex_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -621,9 +633,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                           }
-                          text_transformation {
-                            priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                            type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -712,9 +727,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                             positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                             search_string         = lookup(byte_match_statement.value, "search_string")
-                            text_transformation {
-                              priority = lookup(byte_match_statement.value, "priority")
-                              type     = lookup(byte_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -791,9 +809,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                             regex_string = lookup(regex_match_statement.value, "regex_string")
-                            text_transformation {
-                              priority = lookup(regex_match_statement.value, "priority")
-                              type     = lookup(regex_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -901,9 +922,12 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                               }
                             }
-                            text_transformation {
-                              priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                              type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -1001,9 +1025,12 @@ resource "aws_wafv2_web_acl" "main" {
                                   }
                                   positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                   search_string         = lookup(byte_match_statement.value, "search_string")
-                                  text_transformation {
-                                    priority = lookup(byte_match_statement.value, "priority")
-                                    type     = lookup(byte_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -1080,9 +1107,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                   }
                                   regex_string = lookup(regex_match_statement.value, "regex_string")
-                                  text_transformation {
-                                    priority = lookup(regex_match_statement.value, "priority")
-                                    type     = lookup(regex_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -1183,9 +1213,12 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                     }
                                   }
-                                  text_transformation {
-                                    priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                                    type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -1275,9 +1308,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                     positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                     search_string         = lookup(byte_match_statement.value, "search_string")
-                                    text_transformation {
-                                      priority = lookup(byte_match_statement.value, "priority")
-                                      type     = lookup(byte_match_statement.value, "type")
+                                    dynamic "text_transformation" {
+                                      for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                      content {
+                                        priority = text_transformation.value.priority
+                                        type     = text_transformation.value.type
+                                      }
                                     }
                                   }
                                 }
@@ -1354,9 +1390,12 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                     }
                                     regex_string = lookup(regex_match_statement.value, "regex_string")
-                                    text_transformation {
-                                      priority = lookup(regex_match_statement.value, "priority")
-                                      type     = lookup(regex_match_statement.value, "type")
+                                    dynamic "text_transformation" {
+                                      for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                      content {
+                                        priority = text_transformation.value.priority
+                                        type     = text_transformation.value.type
+                                      }
                                     }
                                   }
                                 }
@@ -1473,9 +1512,12 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                       }
                                     }
-                                    text_transformation {
-                                      priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                                      type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                                    dynamic "text_transformation" {
+                                      for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                                      content {
+                                        priority = text_transformation.value.priority
+                                        type     = text_transformation.value.type
+                                      }
                                     }
                                   }
                                 }
@@ -1570,9 +1612,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                             positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                             search_string         = lookup(byte_match_statement.value, "search_string")
-                            text_transformation {
-                              priority = lookup(byte_match_statement.value, "priority")
-                              type     = lookup(byte_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -1649,9 +1694,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                             regex_string = lookup(regex_match_statement.value, "regex_string")
-                            text_transformation {
-                              priority = lookup(regex_match_statement.value, "priority")
-                              type     = lookup(regex_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -1759,9 +1807,12 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                               }
                             }
-                            text_transformation {
-                              priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                              type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -1844,9 +1895,12 @@ resource "aws_wafv2_web_acl" "main" {
                                   }
                                   positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                   search_string         = lookup(byte_match_statement.value, "search_string")
-                                  text_transformation {
-                                    priority = lookup(byte_match_statement.value, "priority")
-                                    type     = lookup(byte_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -1923,9 +1977,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                   }
                                   regex_string = lookup(regex_match_statement.value, "regex_string")
-                                  text_transformation {
-                                    priority = lookup(regex_match_statement.value, "priority")
-                                    type     = lookup(regex_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -2042,9 +2099,12 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                     }
                                   }
-                                  text_transformation {
-                                    priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                                    type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -2133,9 +2193,12 @@ resource "aws_wafv2_web_acl" "main" {
             }
             positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
             search_string         = lookup(byte_match_statement.value, "search_string")
-            text_transformation {
-              priority = lookup(byte_match_statement.value, "priority")
-              type     = lookup(byte_match_statement.value, "type")
+            dynamic "text_transformation" {
+              for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+              content {
+                priority = text_transformation.value.priority
+                type     = text_transformation.value.type
+              }
             }
           }
         }
@@ -2211,9 +2274,12 @@ resource "aws_wafv2_web_acl" "main" {
               }
             }
             regex_string = lookup(regex_match_statement.value, "regex_string")
-            text_transformation {
-              priority = lookup(regex_match_statement.value, "priority")
-              type     = lookup(regex_match_statement.value, "type")
+            dynamic "text_transformation" {
+              for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+              content {
+                priority = text_transformation.value.priority
+                type     = text_transformation.value.type
+              }
             }
           }
         }
@@ -2326,9 +2392,12 @@ resource "aws_wafv2_web_acl" "main" {
                 }
               }
             }
-            text_transformation {
-              priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-              type     = lookup(regex_pattern_set_reference_statement.value, "type")
+            dynamic "text_transformation" {
+              for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+              content {
+                priority = text_transformation.value.priority
+                type     = text_transformation.value.type
+              }
             }
           }
         }
@@ -2407,9 +2476,12 @@ resource "aws_wafv2_web_acl" "main" {
             }
             comparison_operator = lookup(size_constraint_statement.value, "comparison_operator")
             size                = lookup(size_constraint_statement.value, "size")
-            text_transformation {
-              priority = lookup(size_constraint_statement.value, "priority")
-              type     = lookup(size_constraint_statement.value, "type")
+            dynamic "text_transformation" {
+              for_each = try(size_constraint_statement.value.text_transformation, [{ priority = lookup(size_constraint_statement.value, "priority"), type = lookup(size_constraint_statement.value, "type") }])
+              content {
+                priority = text_transformation.value.priority
+                type     = text_transformation.value.type
+              }
             }
           }
         }
@@ -2468,9 +2540,12 @@ resource "aws_wafv2_web_acl" "main" {
                 }
               }
             }
-            text_transformation {
-              priority = lookup(sqli_match_statement.value, "priority")
-              type     = lookup(sqli_match_statement.value, "type")
+            dynamic "text_transformation" {
+              for_each = try(sqli_match_statement.value.text_transformation, [{ priority = lookup(sqli_match_statement.value, "priority"), type = lookup(sqli_match_statement.value, "type") }])
+              content {
+                priority = text_transformation.value.priority
+                type     = text_transformation.value.type
+              }
             }
           }
         }
@@ -2529,9 +2604,12 @@ resource "aws_wafv2_web_acl" "main" {
                 }
               }
             }
-            text_transformation {
-              priority = lookup(xss_match_statement.value, "priority")
-              type     = lookup(xss_match_statement.value, "type")
+            dynamic "text_transformation" {
+              for_each = try(xss_match_statement.value.text_transformation, [{ priority = lookup(xss_match_statement.value, "priority"), type = lookup(xss_match_statement.value, "type") }])
+              content {
+                priority = text_transformation.value.priority
+                type     = text_transformation.value.type
+              }
             }
           }
         }
@@ -2557,9 +2635,12 @@ resource "aws_wafv2_web_acl" "main" {
                   for_each = length(lookup(custom_key.value, "header", {})) == 0 ? [] : [lookup(custom_key.value, "header", {})]
                   content {
                     name = lookup(header.value, "name")
-                    text_transformation {
-                      priority = lookup(header.value, "priority")
-                      type     = lookup(header.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(header.value.text_transformation, [{ priority = lookup(header.value, "priority"), type = lookup(header.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -2567,27 +2648,36 @@ resource "aws_wafv2_web_acl" "main" {
                   for_each = length(lookup(custom_key.value, "query_argument", {})) == 0 ? [] : [lookup(custom_key.value, "query_argument", {})]
                   content {
                     name = lookup(query_argument.value, "name")
-                    text_transformation {
-                      priority = lookup(query_argument.value, "priority")
-                      type     = lookup(query_argument.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(query_argument.value.text_transformation, [{ priority = lookup(query_argument.value, "priority"), type = lookup(query_argument.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
                 dynamic "uri_path" {
                   for_each = length(lookup(custom_key.value, "uri_path", {})) == 0 ? [] : [lookup(custom_key.value, "uri_path", {})]
                   content {
-                    text_transformation {
-                      priority = lookup(uri_path.value, "priority")
-                      type     = lookup(uri_path.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(uri_path.value.text_transformation, [{ priority = lookup(uri_path.value, "priority"), type = lookup(uri_path.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
                 dynamic "query_string" {
                   for_each = length(lookup(custom_key.value, "query_string", {})) == 0 ? [] : [lookup(custom_key.value, "query_string", {})]
                   content {
-                    text_transformation {
-                      priority = lookup(query_string.value, "priority")
-                      type     = lookup(query_string.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(query_string.value.text_transformation, [{ priority = lookup(query_string.value, "priority"), type = lookup(query_string.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -2670,9 +2760,12 @@ resource "aws_wafv2_web_acl" "main" {
                     }
                     positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                     search_string         = lookup(byte_match_statement.value, "search_string")
-                    text_transformation {
-                      priority = lookup(byte_match_statement.value, "priority")
-                      type     = lookup(byte_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -2749,9 +2842,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                     regex_string = lookup(regex_match_statement.value, "regex_string")
-                    text_transformation {
-                      priority = lookup(regex_match_statement.value, "priority")
-                      type     = lookup(regex_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -2852,9 +2948,12 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                       }
                     }
-                    text_transformation {
-                      priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                      type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -2969,9 +3068,12 @@ resource "aws_wafv2_web_acl" "main" {
                           }
                           positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                           search_string         = lookup(byte_match_statement.value, "search_string")
-                          text_transformation {
-                            priority = lookup(byte_match_statement.value, "priority")
-                            type     = lookup(byte_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -3048,9 +3150,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                           }
                           regex_string = lookup(regex_match_statement.value, "regex_string")
-                          text_transformation {
-                            priority = lookup(regex_match_statement.value, "priority")
-                            type     = lookup(regex_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -3150,9 +3255,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                           }
-                          text_transformation {
-                            priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                            type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -3241,9 +3349,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                             positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                             search_string         = lookup(byte_match_statement.value, "search_string")
-                            text_transformation {
-                              priority = lookup(byte_match_statement.value, "priority")
-                              type     = lookup(byte_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -3320,9 +3431,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                             regex_string = lookup(regex_match_statement.value, "regex_string")
-                            text_transformation {
-                              priority = lookup(regex_match_statement.value, "priority")
-                              type     = lookup(regex_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -3460,9 +3574,12 @@ resource "aws_wafv2_web_acl" "main" {
                                   }
                                   positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                   search_string         = lookup(byte_match_statement.value, "search_string")
-                                  text_transformation {
-                                    priority = lookup(byte_match_statement.value, "priority")
-                                    type     = lookup(byte_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -3539,9 +3656,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                   }
                                   regex_string = lookup(regex_match_statement.value, "regex_string")
-                                  text_transformation {
-                                    priority = lookup(regex_match_statement.value, "priority")
-                                    type     = lookup(regex_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -3641,9 +3761,12 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                     }
                                   }
-                                  text_transformation {
-                                    priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                                    type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -3733,9 +3856,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                     positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                     search_string         = lookup(byte_match_statement.value, "search_string")
-                                    text_transformation {
-                                      priority = lookup(byte_match_statement.value, "priority")
-                                      type     = lookup(byte_match_statement.value, "type")
+                                    dynamic "text_transformation" {
+                                      for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                      content {
+                                        priority = text_transformation.value.priority
+                                        type     = text_transformation.value.type
+                                      }
                                     }
                                   }
                                 }
@@ -3812,9 +3938,12 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                     }
                                     regex_string = lookup(regex_match_statement.value, "regex_string")
-                                    text_transformation {
-                                      priority = lookup(regex_match_statement.value, "priority")
-                                      type     = lookup(regex_match_statement.value, "type")
+                                    dynamic "text_transformation" {
+                                      for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                      content {
+                                        priority = text_transformation.value.priority
+                                        type     = text_transformation.value.type
+                                      }
                                     }
                                   }
                                 }
@@ -3931,9 +4060,12 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                       }
                                     }
-                                    text_transformation {
-                                      priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                                      type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                                    dynamic "text_transformation" {
+                                      for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                                      content {
+                                        priority = text_transformation.value.priority
+                                        type     = text_transformation.value.type
+                                      }
                                     }
                                   }
                                 }
@@ -4027,9 +4159,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                             positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                             search_string         = lookup(byte_match_statement.value, "search_string")
-                            text_transformation {
-                              priority = lookup(byte_match_statement.value, "priority")
-                              type     = lookup(byte_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -4105,9 +4240,12 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                               }
                             }
-                            text_transformation {
-                              priority = lookup(sqli_match_statement.value, "priority")
-                              type     = lookup(sqli_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(sqli_match_statement.value.text_transformation, [{ priority = lookup(sqli_match_statement.value, "priority"), type = lookup(sqli_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -4183,9 +4321,12 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                               }
                             }
-                            text_transformation {
-                              priority = lookup(xss_match_statement.value, "priority")
-                              type     = lookup(xss_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(xss_match_statement.value.text_transformation, [{ priority = lookup(xss_match_statement.value, "priority"), type = lookup(xss_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -4262,9 +4403,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                             regex_string = lookup(regex_match_statement.value, "regex_string")
-                            text_transformation {
-                              priority = lookup(regex_match_statement.value, "priority")
-                              type     = lookup(regex_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -4387,9 +4531,12 @@ resource "aws_wafv2_web_acl" "main" {
                                   }
                                   positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                   search_string         = lookup(byte_match_statement.value, "search_string")
-                                  text_transformation {
-                                    priority = lookup(byte_match_statement.value, "priority")
-                                    type     = lookup(byte_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -4466,9 +4613,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                   }
                                   regex_string = lookup(regex_match_statement.value, "regex_string")
-                                  text_transformation {
-                                    priority = lookup(regex_match_statement.value, "priority")
-                                    type     = lookup(regex_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -4587,9 +4737,12 @@ resource "aws_wafv2_web_acl" "main" {
                   }
                   positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                   search_string         = lookup(byte_match_statement.value, "search_string")
-                  text_transformation {
-                    priority = lookup(byte_match_statement.value, "priority")
-                    type     = lookup(byte_match_statement.value, "type")
+                  dynamic "text_transformation" {
+                    for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                    content {
+                      priority = text_transformation.value.priority
+                      type     = text_transformation.value.type
+                    }
                   }
                 }
               }
@@ -4665,9 +4818,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                   }
-                  text_transformation {
-                    priority = lookup(sqli_match_statement.value, "priority")
-                    type     = lookup(sqli_match_statement.value, "type")
+                  dynamic "text_transformation" {
+                    for_each = try(sqli_match_statement.value.text_transformation, [{ priority = lookup(sqli_match_statement.value, "priority"), type = lookup(sqli_match_statement.value, "type") }])
+                    content {
+                      priority = text_transformation.value.priority
+                      type     = text_transformation.value.type
+                    }
                   }
                 }
               }
@@ -4743,9 +4899,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                   }
-                  text_transformation {
-                    priority = lookup(xss_match_statement.value, "priority")
-                    type     = lookup(xss_match_statement.value, "type")
+                  dynamic "text_transformation" {
+                    for_each = try(xss_match_statement.value.text_transformation, [{ priority = lookup(xss_match_statement.value, "priority"), type = lookup(xss_match_statement.value, "type") }])
+                    content {
+                      priority = text_transformation.value.priority
+                      type     = text_transformation.value.type
+                    }
                   }
                 }
               }
@@ -4822,9 +4981,12 @@ resource "aws_wafv2_web_acl" "main" {
                     }
                   }
                   regex_string = lookup(regex_match_statement.value, "regex_string")
-                  text_transformation {
-                    priority = lookup(regex_match_statement.value, "priority")
-                    type     = lookup(regex_match_statement.value, "type")
+                  dynamic "text_transformation" {
+                    for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                    content {
+                      priority = text_transformation.value.priority
+                      type     = text_transformation.value.type
+                    }
                   }
                 }
               }
@@ -4941,9 +5103,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                   }
-                  text_transformation {
-                    priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                    type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                  dynamic "text_transformation" {
+                    for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                    content {
+                      priority = text_transformation.value.priority
+                      type     = text_transformation.value.type
+                    }
                   }
                 }
               }
@@ -5033,9 +5198,12 @@ resource "aws_wafv2_web_acl" "main" {
                     }
                     positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                     search_string         = lookup(byte_match_statement.value, "search_string")
-                    text_transformation {
-                      priority = lookup(byte_match_statement.value, "priority")
-                      type     = lookup(byte_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -5112,9 +5280,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                     regex_string = lookup(regex_match_statement.value, "regex_string")
-                    text_transformation {
-                      priority = lookup(regex_match_statement.value, "priority")
-                      type     = lookup(regex_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -5231,9 +5402,12 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                       }
                     }
-                    text_transformation {
-                      priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                      type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -5313,9 +5487,12 @@ resource "aws_wafv2_web_acl" "main" {
                     }
                     comparison_operator = lookup(size_constraint_statement.value, "comparison_operator")
                     size                = lookup(size_constraint_statement.value, "size")
-                    text_transformation {
-                      priority = lookup(size_constraint_statement.value, "priority")
-                      type     = lookup(size_constraint_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(size_constraint_statement.value.text_transformation, [{ priority = lookup(size_constraint_statement.value, "priority"), type = lookup(size_constraint_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -5398,9 +5575,12 @@ resource "aws_wafv2_web_acl" "main" {
                           }
                           positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                           search_string         = lookup(byte_match_statement.value, "search_string")
-                          text_transformation {
-                            priority = lookup(byte_match_statement.value, "priority")
-                            type     = lookup(byte_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -5476,9 +5656,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                           }
-                          text_transformation {
-                            priority = lookup(sqli_match_statement.value, "priority")
-                            type     = lookup(sqli_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(sqli_match_statement.value.text_transformation, [{ priority = lookup(sqli_match_statement.value, "priority"), type = lookup(sqli_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -5554,9 +5737,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                           }
-                          text_transformation {
-                            priority = lookup(xss_match_statement.value, "priority")
-                            type     = lookup(xss_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(xss_match_statement.value.text_transformation, [{ priority = lookup(xss_match_statement.value, "priority"), type = lookup(xss_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -5633,9 +5819,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                           }
                           regex_string = lookup(regex_match_statement.value, "regex_string")
-                          text_transformation {
-                            priority = lookup(regex_match_statement.value, "priority")
-                            type     = lookup(regex_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -5755,9 +5944,12 @@ resource "aws_wafv2_web_acl" "main" {
                           }
                           comparison_operator = lookup(size_constraint_statement.value, "comparison_operator")
                           size                = lookup(size_constraint_statement.value, "size")
-                          text_transformation {
-                            priority = lookup(size_constraint_statement.value, "priority")
-                            type     = lookup(size_constraint_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(size_constraint_statement.value.text_transformation, [{ priority = lookup(size_constraint_statement.value, "priority"), type = lookup(size_constraint_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -5834,9 +6026,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                           }
-                          text_transformation {
-                            priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                            type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -5926,9 +6121,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                             positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                             search_string         = lookup(byte_match_statement.value, "search_string")
-                            text_transformation {
-                              priority = lookup(byte_match_statement.value, "priority")
-                              type     = lookup(byte_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -6005,9 +6203,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                             regex_string = lookup(regex_match_statement.value, "regex_string")
-                            text_transformation {
-                              priority = lookup(regex_match_statement.value, "priority")
-                              type     = lookup(regex_match_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -6124,9 +6325,12 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                               }
                             }
-                            text_transformation {
-                              priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                              type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                            dynamic "text_transformation" {
+                              for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                              content {
+                                priority = text_transformation.value.priority
+                                type     = text_transformation.value.type
+                              }
                             }
                           }
                         }
@@ -6209,9 +6413,12 @@ resource "aws_wafv2_web_acl" "main" {
                                   }
                                   positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                                   search_string         = lookup(byte_match_statement.value, "search_string")
-                                  text_transformation {
-                                    priority = lookup(byte_match_statement.value, "priority")
-                                    type     = lookup(byte_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -6288,9 +6495,12 @@ resource "aws_wafv2_web_acl" "main" {
                                     }
                                   }
                                   regex_string = lookup(regex_match_statement.value, "regex_string")
-                                  text_transformation {
-                                    priority = lookup(regex_match_statement.value, "priority")
-                                    type     = lookup(regex_match_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -6407,9 +6617,12 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                     }
                                   }
-                                  text_transformation {
-                                    priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                                    type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                                  dynamic "text_transformation" {
+                                    for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                                    content {
+                                      priority = text_transformation.value.priority
+                                      type     = text_transformation.value.type
+                                    }
                                   }
                                 }
                               }
@@ -6508,9 +6721,12 @@ resource "aws_wafv2_web_acl" "main" {
                     }
                     positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                     search_string         = lookup(byte_match_statement.value, "search_string")
-                    text_transformation {
-                      priority = lookup(byte_match_statement.value, "priority")
-                      type     = lookup(byte_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -6586,9 +6802,12 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                       }
                     }
-                    text_transformation {
-                      priority = lookup(sqli_match_statement.value, "priority")
-                      type     = lookup(sqli_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(sqli_match_statement.value.text_transformation, [{ priority = lookup(sqli_match_statement.value, "priority"), type = lookup(sqli_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -6664,9 +6883,12 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                       }
                     }
-                    text_transformation {
-                      priority = lookup(xss_match_statement.value, "priority")
-                      type     = lookup(xss_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(xss_match_statement.value.text_transformation, [{ priority = lookup(xss_match_statement.value, "priority"), type = lookup(xss_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -6743,9 +6965,12 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                     }
                     regex_string = lookup(regex_match_statement.value, "regex_string")
-                    text_transformation {
-                      priority = lookup(regex_match_statement.value, "priority")
-                      type     = lookup(regex_match_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -6862,9 +7087,12 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                       }
                     }
-                    text_transformation {
-                      priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                      type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                    dynamic "text_transformation" {
+                      for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                      content {
+                        priority = text_transformation.value.priority
+                        type     = text_transformation.value.type
+                      }
                     }
                   }
                 }
@@ -6947,9 +7175,12 @@ resource "aws_wafv2_web_acl" "main" {
                           }
                           positional_constraint = lookup(byte_match_statement.value, "positional_constraint")
                           search_string         = lookup(byte_match_statement.value, "search_string")
-                          text_transformation {
-                            priority = lookup(byte_match_statement.value, "priority")
-                            type     = lookup(byte_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(byte_match_statement.value.text_transformation, [{ priority = lookup(byte_match_statement.value, "priority"), type = lookup(byte_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -7026,9 +7257,12 @@ resource "aws_wafv2_web_acl" "main" {
                             }
                           }
                           regex_string = lookup(regex_match_statement.value, "regex_string")
-                          text_transformation {
-                            priority = lookup(regex_match_statement.value, "priority")
-                            type     = lookup(regex_match_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_match_statement.value.text_transformation, [{ priority = lookup(regex_match_statement.value, "priority"), type = lookup(regex_match_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
@@ -7145,9 +7379,12 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                             }
                           }
-                          text_transformation {
-                            priority = lookup(regex_pattern_set_reference_statement.value, "priority")
-                            type     = lookup(regex_pattern_set_reference_statement.value, "type")
+                          dynamic "text_transformation" {
+                            for_each = try(regex_pattern_set_reference_statement.value.text_transformation, [{ priority = lookup(regex_pattern_set_reference_statement.value, "priority"), type = lookup(regex_pattern_set_reference_statement.value, "type") }])
+                            content {
+                              priority = text_transformation.value.priority
+                              type     = text_transformation.value.type
+                            }
                           }
                         }
                       }
