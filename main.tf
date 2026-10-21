@@ -216,7 +216,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -299,7 +301,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -416,7 +420,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -499,7 +505,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -597,7 +605,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -689,7 +699,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -772,7 +784,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -886,7 +900,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -987,7 +1003,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1070,7 +1088,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1177,7 +1197,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1270,7 +1292,9 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                         dynamic "body" {
                                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                          content {}
+                                          content {
+                                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                                          }
                                         }
                                         dynamic "method" {
                                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1353,7 +1377,9 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                         dynamic "body" {
                                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                          content {}
+                                          content {
+                                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                                          }
                                         }
                                         dynamic "method" {
                                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1476,7 +1502,9 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                         dynamic "body" {
                                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                          content {}
+                                          content {
+                                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                                          }
                                         }
                                         dynamic "method" {
                                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1574,7 +1602,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1657,7 +1687,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1771,7 +1803,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1857,7 +1891,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -1940,7 +1976,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2063,7 +2101,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2154,7 +2194,9 @@ resource "aws_wafv2_web_acl" "main" {
                 }
                 dynamic "body" {
                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                  content {}
+                  content {
+                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                  }
                 }
                 dynamic "method" {
                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2237,7 +2279,9 @@ resource "aws_wafv2_web_acl" "main" {
                 }
                 dynamic "body" {
                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                  content {}
+                  content {
+                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                  }
                 }
                 dynamic "method" {
                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2356,7 +2400,9 @@ resource "aws_wafv2_web_acl" "main" {
                 }
                 dynamic "body" {
                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                  content {}
+                  content {
+                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                  }
                 }
                 dynamic "method" {
                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2722,7 +2768,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2805,7 +2853,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -2912,7 +2962,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3029,7 +3081,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3113,7 +3167,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3219,7 +3275,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3311,7 +3369,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3394,7 +3454,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3536,7 +3598,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3619,7 +3683,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3725,7 +3791,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3818,7 +3886,9 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                         dynamic "body" {
                                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                          content {}
+                                          content {
+                                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                                          }
                                         }
                                         dynamic "method" {
                                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -3901,7 +3971,9 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                         dynamic "body" {
                                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                          content {}
+                                          content {
+                                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                                          }
                                         }
                                         dynamic "method" {
                                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4024,7 +4096,9 @@ resource "aws_wafv2_web_acl" "main" {
                                         }
                                         dynamic "body" {
                                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                          content {}
+                                          content {
+                                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                                          }
                                         }
                                         dynamic "method" {
                                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4121,7 +4195,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4204,7 +4280,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4285,7 +4363,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4366,7 +4446,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4493,7 +4575,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4576,7 +4660,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4699,7 +4785,9 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                       dynamic "body" {
                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                        content {}
+                        content {
+                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                        }
                       }
                       dynamic "method" {
                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4782,7 +4870,9 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                       dynamic "body" {
                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                        content {}
+                        content {
+                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                        }
                       }
                       dynamic "method" {
                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4863,7 +4953,9 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                       dynamic "body" {
                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                        content {}
+                        content {
+                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                        }
                       }
                       dynamic "method" {
                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -4944,7 +5036,9 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                       dynamic "body" {
                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                        content {}
+                        content {
+                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                        }
                       }
                       dynamic "method" {
                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5067,7 +5161,9 @@ resource "aws_wafv2_web_acl" "main" {
                       }
                       dynamic "body" {
                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                        content {}
+                        content {
+                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                        }
                       }
                       dynamic "method" {
                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5160,7 +5256,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5243,7 +5341,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5366,7 +5466,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5537,7 +5639,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5620,7 +5724,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5701,7 +5807,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5782,7 +5890,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -5990,7 +6100,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6083,7 +6195,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6166,7 +6280,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6289,7 +6405,9 @@ resource "aws_wafv2_web_acl" "main" {
                                 }
                                 dynamic "body" {
                                   for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                  content {}
+                                  content {
+                                    oversize_handling = lookup(body.value, "oversize_handling", null)
+                                  }
                                 }
                                 dynamic "method" {
                                   for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6375,7 +6493,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6458,7 +6578,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6581,7 +6703,9 @@ resource "aws_wafv2_web_acl" "main" {
                                       }
                                       dynamic "body" {
                                         for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                        content {}
+                                        content {
+                                          oversize_handling = lookup(body.value, "oversize_handling", null)
+                                        }
                                       }
                                       dynamic "method" {
                                         for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6683,7 +6807,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6766,7 +6892,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6847,7 +6975,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -6928,7 +7058,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -7051,7 +7183,9 @@ resource "aws_wafv2_web_acl" "main" {
                         }
                         dynamic "body" {
                           for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                          content {}
+                          content {
+                            oversize_handling = lookup(body.value, "oversize_handling", null)
+                          }
                         }
                         dynamic "method" {
                           for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -7137,7 +7271,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -7220,7 +7356,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
@@ -7343,7 +7481,9 @@ resource "aws_wafv2_web_acl" "main" {
                               }
                               dynamic "body" {
                                 for_each = length(lookup(field_to_match.value, "body", {})) == 0 ? [] : [lookup(field_to_match.value, "body")]
-                                content {}
+                                content {
+                                  oversize_handling = lookup(body.value, "oversize_handling", null)
+                                }
                               }
                               dynamic "method" {
                                 for_each = length(lookup(field_to_match.value, "method", {})) == 0 ? [] : [lookup(field_to_match.value, "method")]
